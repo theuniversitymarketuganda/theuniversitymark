@@ -388,18 +388,153 @@ document.addEventListener('DOMContentLoaded', () => {
     if (darkModeToggle) darkModeToggle.checked = savedDarkMode;
     document.body.classList.toggle('dark-mode', savedDarkMode);
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // Form elements
+    const loginForm = document.getElementById('loginForm');
+    const registerForm = document.getElementById('registerForm');
+    const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+    const userInfo = document.getElementById('userInfo');
+    const welcomeMessage = document.getElementById('welcomeMessage');
+    const usernameInput = document.getElementById('usernameInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const registerUsername = document.getElementById('registerUsername');
+    const registerEmail = document.getElementById('registerEmail');
+    const registerPassword = document.getElementById('registerPassword');
+    const confirmPassword = document.getElementById('confirmPassword');
+    const userNameDisplay = document.getElementById('userName');
+    const userEmailDisplay = document.getElementById('userEmail');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    // Navigation links/buttons
+    const registerLink = document.getElementById('registerLink');
+    const backToLogin = document.getElementById('backToLogin');
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+
+    // Mock user database (for demonstration purposes)
+    const users = {};
+
+    // Show specific form and hide others
+    function showForm(formId) {
+        loginForm.style.display = 'none';
+        registerForm.style.display = 'none';
+        forgotPasswordForm.style.display = 'none';
+        userInfo.style.display = 'none';
+
+        const formToShow = document.getElementById(formId);
+        if (formToShow) {
+            formToShow.style.display = 'block';
+        }
+    }
+
+    // Navigate to Register Form
+    if (registerLink) {
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            showForm('registerForm');
+        });
+    }
+
+    // Navigate back to Login Form from Register Form
+    if (backToLogin) {
+        backToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            showForm('loginForm');
+        });
+    }
+
+    // Handle Login
+    if (loginBtn) {
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const username = usernameInput.value.trim();
+            const password = passwordInput.value.trim();
+
+            if (!username || !password) {
+                alert('Please enter both username and password.');
+                return;
+            }
+
+            // Check if user exists and password matches
+            if (users[username] && users[username].password === password) {
+                // Show user profile
+                userNameDisplay.textContent = username;
+                userEmailDisplay.textContent = users[username].email;
+                welcomeMessage.textContent = `Welcome back, ${username}!`;
+                showForm('userInfo');
+
+                // Clear input fields
+                usernameInput.value = '';
+                passwordInput.value = '';
+            } else {
+                alert('Invalid username or password.');
+            }
+        });
+    }
+
+    // Handle Registration
+    if (registerBtn) {
+        registerBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const username = registerUsername.value.trim();
+            const email = registerEmail.value.trim();
+            const password = registerPassword.value.trim();
+            const confirm = confirmPassword.value.trim();
+
+            if (!username || !email || !password || !confirm) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            if (password !== confirm) {
+                alert('Passwords do not match!');
+                return;
+            }
+
+            if (users[username]) {
+                alert('Username already exists. Please choose a different username.');
+                return;
+            }
+
+            // Save user to mock database
+            users[username] = { email, password };
+
+            alert('Registration successful. Please log in.');
+            showForm('loginForm');
+
+            // Clear input fields
+            registerUsername.value = '';
+            registerEmail.value = '';
+            registerPassword.value = '';
+            confirmPassword.value = '';
+        });
+    }
+
+    // Handle Logout
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            showForm('loginForm');
+        });
+    }
+});
 
 document.addEventListener('DOMContentLoaded', () => {
+    // Nexus AI Chat Elements
     const nexusAIFloatingIcon = document.getElementById('nexusAIFloatingIcon');
     const nexusAiSection = document.getElementById('nexusAiSection');
-    const nexusAIChatLog = document.getElementById('nexusAIChatLog');
     const nexusAIInput = document.getElementById('nexusAIInput');
     const nexusAISubmit = document.getElementById('nexusAISubmit');
+    const nexusAIChatLog = document.getElementById('nexusAIChatLog');
     const nexusAILoading = document.getElementById('nexusAILoading');
 
     // Toggle Nexus AI Chat Section
     nexusAIFloatingIcon.addEventListener('click', () => {
-        nexusAiSection.style.display = nexusAiSection.style.display === 'none' ? 'block' : 'none';
+        if (nexusAiSection.style.display === 'none' || nexusAiSection.style.display === '') {
+            nexusAiSection.style.display = 'flex';
+        } else {
+            nexusAiSection.style.display = 'none';
+        }
     });
 
     // Handle Nexus AI Input
@@ -424,44 +559,31 @@ document.addEventListener('DOMContentLoaded', () => {
         // Clear input field
         nexusAIInput.value = '';
 
-        // Show loading indicator
-        nexusAILoading.style.display = 'block';
+        // Show "typing..." indicator
+        const typingIndicator = document.createElement('p');
+        typingIndicator.textContent = 'Nexus is typing...';
+        typingIndicator.style.fontStyle = 'italic';
+        typingIndicator.style.color = 'gray';
+        nexusAIChatLog.appendChild(typingIndicator);
+        nexusAIChatLog.scrollTop = nexusAIChatLog.scrollHeight;
 
-        try {
-            // Fetch response from DeepSeek API
-            const response = await fetch('https://api.deepseek.com/v1/query', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer sk-b7a344df58ef4400a1de2c7bafffc888`, // Replace with your DeepSeek API key
-                },
-                body: JSON.stringify({
-                    query: userInput, // The user's input
-                }),
-            });
+        // Simulate typing delay
+        await new Promise(resolve => setTimeout(resolve, 4000)); // 4-second delay
 
-            if (!response.ok) {
-                throw new Error(`API Error: ${response.status} - ${response.statusText}`);
-            }
+        // Remove "typing..." indicator
+        typingIndicator.remove();
 
-            const data = await response.json();
-            const aiMessage = document.createElement('p');
-            aiMessage.textContent = `Nexus: ${data.answer}`; // Adjust based on DeepSeek API response structure
-            aiMessage.style.backgroundColor = '#f1f1f1';
-            aiMessage.style.padding = '10px';
-            aiMessage.style.borderRadius = '5px';
-            nexusAIChatLog.appendChild(aiMessage);
-        } catch (error) {
-            console.error('Error:', error); // Log the error for debugging
-            const errorMessage = document.createElement('p');
-            errorMessage.textContent = 'Nexus: Oops! Something went wrong. Please try again later. 😓';
-            errorMessage.style.color = 'red';
-            nexusAIChatLog.appendChild(errorMessage);
-        } finally {
-            // Hide loading indicator
-            nexusAILoading.style.display = 'none';
-            nexusAIChatLog.scrollTop = nexusAIChatLog.scrollHeight;
-        }
+        // Generate Nexus AI response
+        const responseElement = document.createElement('p');
+        const response = generateNexusAIResponse(userInput);
+        responseElement.textContent = `Nexus: ${response}`;
+        responseElement.style.backgroundColor = '#f1f1f1';
+        responseElement.style.padding = '10px';
+        responseElement.style.borderRadius = '5px';
+        nexusAIChatLog.appendChild(responseElement);
+
+        // Scroll to the latest message
+        nexusAIChatLog.scrollTop = nexusAIChatLog.scrollHeight;
     });
 
     // Allow pressing Enter to submit
@@ -471,3 +593,27 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Function to generate Nexus AI response
+function generateNexusAIResponse(input) {
+    const predefinedResponses = {
+        'hello': 'Hey there! I’m Nexus, your AI sidekick. What’s on your mind? 🤖',
+        'Good evenning': 'Good evenning there! Hope you are enjoying the sunset breeze!!! I’m Nexus, your AI sidekick. What’s on your mind? 🤖',
+        'Good morning': 'Good morning there! Hope you are enjoying the sun raise breeze!!! I’m Nexus, your AI sidekick. What’s on your mind? 🤖',
+        'hi': 'Hi! I’m Nexus, here to assist you. What can I do for you today? 😄',
+        'how are you': 'I’m doing great, thanks for asking! Just chilling with my digital neurons. How about you? 😊',
+        'what is ai': 'AI, or Artificial Intelligence, is like me—a clever program designed to think and help humans! I was crafted by Yiga Elvis Malcom to assist you. 🤓',
+        'what is ai?': 'AI, or Artificial Intelligence, is like me—a clever program designed to think and help humans! I was crafted by Yiga Elvis Malcom to assist you. 🤓',
+        'thank you': 'You’re welcome! Always happy to help. Anything else on your mind? 😊',
+        'who are you?': 'I’m Nexus, your AI assistant! I’m here to answer your questions, generate images, and make your day easier. How can I assist you today? 🤖',
+        'who are you': 'I’m Nexus, your AI assistant! I’m here to answer your questions, generate images, and make your day easier. How can I assist you today? 🤖'
+        
+    };
+
+    const lowerInput = input.toLowerCase();
+    if (predefinedResponses[lowerInput]) {
+        return predefinedResponses[lowerInput];
+    }
+
+    return `Hmm, that’s an interesting one— I am sorry that i can't help you with-${input} because i am still under development but my designer is working tirelessly to see me rendering help but I’d say it’s worth exploring, can you give me some more information about it? 🤔`;
+}
