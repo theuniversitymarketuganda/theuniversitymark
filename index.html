@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The University Market</title>
+    <meta name="description" content="buy and sell with your university community">
+    <meta name="author" content="Yiga Elvis Malcom">
+    <link rel="icon" href="file-ETJp2FaNGeFuBGrp1GDwyw (1).webp">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <header>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-xxx" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <div class="logo" src="file-ETJp2FaNGeFuBGrp1GDwyw (1).webp">logo</div>
+    <div class="title-section">
+        <h1>THE UNIVERSITY MARKET</h1>
+        <p>Empowering campus unity with your hostel shop</p>
+        <p>Buy, sell, and unite within and around your university community</p>
+    </div>
+    <button class="explore-btn" id="exploreBtn">
+        <i class="fas fa-star"></i>
+    </button>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <i class="fas fa-times sidebar-close" id="sidebarClose"></i>
+        </div>
+        <ul class="sidebar-menu">
+            <li class="category"><i class="fas fa-fire"></i> Hot Deals</li>
+            <li class="category"><i class="fas fa-calendar-alt"></i> University Events</li>
+            <li class="category"><i class="fas fa-couch"></i> Furniture</li>
+            <li class="category category-with-sub" data-has-sub="true"><i class="fas fa-laptop"></i> Electronics
+                <div class="subcategory-panel" id="electronics-sub">
+                    <div class="subcategory-header">
+                        <i class="fas fa-arrow-left subcategory-back"></i> Electronics
+                    </div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-laptop"></i> All Electronics</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-laptop"></i> Laptops</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-mobile-alt"></i> Phones</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-headphones"></i> Headphones</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-tv"></i> TVs</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-camera"></i> Cameras</div>
+                </div>
+            </li>
+            <li class="category category-with-sub" data-has-sub="true"><i class="fas fa-book"></i> Books
+                <div class="subcategory-panel" id="books-sub">
+                    <div class="subcategory-header">
+                        <i class="fas fa-arrow-left subcategory-back"></i> Books
+                    </div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-book"></i> All Books</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-flask"></i> Science</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-university"></i> Humanities</div>
+                </div>
+            </li>
+            <li class="category"><i class="fas fa-concierge-bell"></i> Services</li>
+            <li class="category category-with-sub" data-has-sub="true"><i class="fas fa-tshirt"></i> Clothing
+                <div class="subcategory-panel" id="clothing-sub">
+                    <div class="subcategory-header">
+                        <i class="fas fa-arrow-left subcategory-back"></i> Clothing
+                    </div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-tshirt"></i> All Clothing</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-female"></i> Ladies</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-male"></i> Gentlemen</div>
+                </div>
+            </li>
+            <li class="category category-with-sub" data-has-sub="true"><i class="fas fa-briefcase"></i> Jobs
+                <div class="subcategory-panel" id="jobs-sub">
+                    <div class="subcategory-header">
+                        <i class="fas fa-arrow-left subcategory-back"></i> Jobs
+                    </div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-briefcase"></i> All Jobs</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-globe"></i> Remote</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-user"></i> Personal Attendance</div>
+                </div>
+            </li>
+            <li class="category"><i class="fas fa-motorcycle"></i> Boda Services</li>
+            <li class="category"><i class="fas fa-motorcycle"></i> repair Services</li>
+            <li class="category"><i class="fas fa-motorcycle"></i> Free Stuff</li>
+            <li class="category category-with-sub" data-has-sub="true"><i class="fas fa-utensils"></i> Restaurants
+                <div class="subcategory-panel" id="restaurants-sub">
+                    <div class="subcategory-header">
+                        <i class="fas fa-arrow-left subcategory-back"></i> Restaurants
+                    </div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-utensils"></i> All Restaurants</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-hamburger"></i> Fast Food</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-coffee"></i> Cafes</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-utensil-spoon"></i> Fine Dining</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-pizza-slice"></i> Pizza</div>
+                </div>
+            </li>
+            <li class="category"><i class="fas fa-store"></i> Shops</li>
+            <li class="category"><i class="fas fa-tools"></i> Repair Services</li>
+            <li class="category category-with-sub" data-has-sub="true"><i class="fas fa-car"></i> Vehicles
+                <div class="subcategory-panel" id="vehicles-sub">
+                    <div class="subcategory-header">
+                        <i class="fas fa-arrow-left subcategory-back"></i> Vehicles
+                    </div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-car"></i> All Vehicles</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-car"></i> Cars</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-motorcycle"></i> Motorcycles</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-truck"></i> Trucks</div>
+                    <div class="subcategory-item subcategory"><i class="fas fa-bicycle"></i> Bicycles</div>
+                </div>
+            </li>
+            <li class="category"><i class="fas fa-search"></i> Lost and Found</li>
+            <li class="category"><i class="fas fa-calendar-check"></i> University Events</li>
+            <li class="category"><i class="fas fa-ellipsis-h"></i> Others</li>
+        </ul>
+    </aside>
+   </header> 
+   <main>
+    <section class="search-section">
+        <input type="text" id="searchInput" placeholder="Search for an item...">
+        <select id="universitySelect">
+            <option value="kiu.ac.ug">Kampala International University Western Campus</option>
+            <option value="kiu.ac.ug">Kampala International University Main Campus</option>
+            <option value="mak.ac.ug">Makerere University Main Campus</option>
+            <option value="kyu.ac.ug">Kyambogo University Main Campus</option>
+            <option value="kyu.ac.ug">Kyambogo University Bushenyi Campus</option>
+            <option value="gu.ac.ug">Gulu University Main Campus</option>
+            <option value="gu.ac.ug">Gulu University Kitgum Campus</option>
+            <option value="gu.ac.ug">Gulu University Hoima Campus</option>
+            <option value="gu.ac.ug">Gulu University Kotido Campus</option>
+            <option value="gu.ac.ug">Gulu University Moroto College</option>
+            <option value="mu.ac.ug">Mbarara University Main Campus</option>
+            <option value="mu.ac.ug">Mbarara University Kihumuro Campus</option>
+            <option value="ucu.ac.ug">Uganda Christian University Main Campus</option>
+            <option value="ucu.ac.ug">Uganda Christian University Kampala Campus</option>
+            <option value="ucu.ac.ug">Uganda Christian University Mbale College</option>
+            <option value="ucu.ac.ug">Uganda Christian University Arua Campus</option>
+            <option value="ucu.ac.ug"> Bishop Barham University College Kabale</option>
+            <option value="busitema.ac.ug">Busitema University Main Campus</option>
+            <option value="busitema.ac.ug">Busitema University Nagongera Campus</option>
+            <option value="busitema.ac.ug">Busitema University Mbale Campus</option>
+            <option value="busitema.ac.ug">Busitema University Arapai Campus</option>
+            <option value="busitema.ac.ug">Busitema University Namasagali Campus</option>
+            <option value="busitema.ac.ug">Busitema University Pallisa Campus</option>
+            <option value="kab.ac.ug">Kabale University Main Campus</option>
+            <option value="kab.ac.ug">Kabale University Nyabikoni Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Main Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Lubaga Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Masaka Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Mbale Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Kabale Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Mbarara Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Lira Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Fort Portal Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Nsambya Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Moyo Campus</option>
+            <option value="iuiu.ac.ug">Islamic University In Uganda Main Campus</option>
+            <option value="iuiu.ac.ug">Islamic University In Uganda Kampala Campus</option>
+            <option value="iuiu.ac.ug">Islamic University In Uganda Female's Campus</option>
+            <option value="iuiu.ac.ug">Islamic University In Uganda Arua Campus</option>
+            <option value="mmu.ac.ug">Mountains of the Moon University Lake Saaka Campus</option>
+            <option value="mmu.ac.ug">Mountains of the Moon University Down Town Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Main Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Arua Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Jinja Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Mbale Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Mbarara Campus</option>
+            <option value="umi.ac.ug">Uganda Management Institute Main Campus</option>
+            <option value="umi.ac.ug">Uganda Management Institute Gulu Campus</option>
+            <option value="umi.ac.ug">Uganda Management Institute Mbarara Campus</option>
+            <option value="umi.ac.ug">Uganda Management Institute Mbale Campus</option>
+            <option value="ndu.ac.ug">Ndejje University Main Campus</option>
+            <option value="ndu.ac.ug">Ndejje University Kampala Campus</option>
+            <option value="clarke.ac.ug">Clarke International University</option>
+            <option value="bsu.ac.ug">Bishop Stuart University Main Campus</option>
+            <option value="bsu.ac.ug">Bishop Stuart University Ruharo Campus</option>
+            <option value="mu.ac.ug">Muni University</option>
+            <option value="nkumba.ac.ug">Nkumba University Main Campus</option>
+            <option value="nkumba.ac.ug">Nkumba University Kampala Campus</option>
+            <option value="nkumba.ac.ug">Nkumba University Kyegegwa Campus</option>
+            <option value="utamu.ac.ug">Uganda Technology & Management University</option>
+            <option value="vu.ac.ug">Victoria University Market Plaza Campus</option>
+            <option value="vu.ac.ug">Victoria University Main Campus</option>
+            <option value="iuea.ac.ug">International University of East Africa</option>
+            <option value="bugema.ac.ug">Bugema University Main Campus</option>
+            <option value="bugema.ac.ug">Bugema University Kampala Campus</option>
+            <option value="bugema.ac.ug">Bugema University Arua Campus</option>
+            <option value="lu.ac.ug">Lira University</option>
+            <option value="ku.ac.ug">Kumi University Main Campus</option>
+            <option value="ku.ac.ug">Kumi University Soroti Campus</option>
+            <option value="cu.ac.ug">Cavendish University Main Campus</option>
+            <option value="cu.ac.ug">Cavendish University Acacia Law Campus</option>
+            <option value="cu.ac.ug">Cavendish University Kingsgate Campus</option>
+            <option value="ku.ac.ug">Kampala University Main Campus</option>
+            <option value="ku.ac.ug">Kampala University Old Kampala Campus</option>
+            <option value="ku.ac.ug">Kampala University Luwero Campus</option>
+            <option value="ku.ac.ug">Kampala University Masaka Campus</option>
+            <option value="ku.ac.ug">Kampala University Mutundwe Campus</option>
+            <option value="ldc.ac.ug">Law Development Center Kampala Main Campus</option>
+            <option value="ldc.ac.ug">Law Development Center Kampala Mbarara Campus</option>
+            <option value="ldc.ac.ug">Law Development Center Kampala Lira Campus</option>
+            <option value="mru.ac.ug">Mutesa 1 Royal University Main Campus</option>
+            <option value="mru.ac.ug">Mutesa 1 Royal University Masaka Campus</option>
+            <option value="mru.ac.ug">Mutesa 1 Royal University Mengo Campus</option>
+            <option value="mru.ac.ug">Mutesa 1 Royal University Mubende Campus</option>
+            <option value="liu.ac.ug">Livingstone International University</option>
+            <option value="uiit.ac.ug">Uganda Institute of Information and Technology</option>
+            <option value="su.ac.ug">Soroti University</option>
+            <option value="aru.ac.ug">African Rural University</option>
+            <option value="isbat.ac.ug">ISBAT University</option>
+            <option value="slu.ac.ug">St Lawrence University</option>
+            <option value="univ-of-kisubi.ac.ug">University of Kisubi</option>
+            <option value="atsu.ac.ug">African Theological Seminary University</option>
+            <option value="upu.ac.ug">Uganda Pentecostal University</option>
+            <option value="itu.ac.ug">Insurance Training University</option>
+            <option value="kcu.ac.ug">King Ceasor University</option>
+            <option value="tu.ac.ug">Team University</option>
+            <option value="uib.ac.ug">Uganda Institute of Banking University</option>
+            <option value="awu.ac.ug">Ankole Western University</option>
+            <option value="miu.ac.ug">Metropolitan International University</option>
+            <option value="iu.ac.ug">Ibanda University</option>
+            <option value="ips.ac.ug">Institute of Petroleum Studies</option>
+            <option value="ushg.ac.ug">University of the Sacred Heart Gulu</option>
+            <option value="iiu.ac.ug">Ivance International University</option>
+            <option value="asu.ac.ug">All Saints University</option>
+            <option value="aru.ac.ug">African Renewal University</option>
+            <option value="vust.ac.ug">Valley University of Science and Technology</option>
+            <option value="glru.ac.ug">Great Lakes Regional University</option>
+            <option value="fmu.ac.ug">Fins Medical University</option>
+            <option value="kiu.ac.ug">Kayiwa International University</option>
+        </select>
+    </section>
+    <section class="trending-adverts">
+        <h2>Trending Adverts</h2>
+        <div class="adverts-grid" id="advertsGrid"></div>
+    </section>
+   </main>
+   <script src="script.js"></script>
+   <!-- Remove this from <header> -->
+<!-- <div class="menu-container">...</div> -->
+
+<!-- Update the footer with all navigation items -->
+<footer class="nav-bar">
+    <div class="nav-item" id="navProfile">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+    </div>
+    <div class="nav-item" id="navContactUs">
+        <i class="fas fa-envelope"></i>
+        <span>Contact Us</span>
+    </div>
+    <div class="nav-item" id="navSettings">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+    </div>
+    <div class="nav-item" id="navPostAd">
+        <i class="fas fa-plus"></i>
+        <span>Post Ad</span>
+    </div>
+    <div class="nav-item" id="navFAQs">
+        <i class="fas fa-question"></i>
+        <span>Ad FAQs</span>
+    </div>
+    <div class="nav-add" id="navAdd">
+        <i class="fas fa-plus"></i>
+    </div>
+</footer>
+
+<!-- Authentication and Feature Sections -->
+<div class="profile-section" id="profileSection" style="display: none;">
+    <h3>Profile</h3>
+    <img src="path/to/default-avatar.png" alt="User Avatar" class="profile-avatar">
+    <p id="welcomeMessage">Welcome! Please log in or register.</p>
+    <div id="loginForm" style="display: block;">
+        <input type="text" placeholder="Username" id="usernameInput">
+        <input type="password" placeholder="Password" id="passwordInput">
+        <button id="loginBtn">Login</button>
+        <a href="#" id="registerLink">Register</a>
+        <a href="#" id="forgotPasswordLink">Forgot Password</a>
+    </div>
+    <div id="registerForm" style="display: none;">
+        <input type="text" placeholder="Username" id="registerUsername">
+        <input type="email" placeholder="Email" id="registerEmail">
+        <input type="password" placeholder="Password" id="registerPassword">
+        <input type="password" placeholder="Confirm Password" id="confirmPassword">
+        <button id="registerBtn">Register</button>
+        <a href="#" id="backToLogin">Back to Login</a>
+    </div>
+    <div id="forgotPasswordForm" style="display: none;">
+        <input type="text" placeholder="Email or WhatsApp Number" id="forgotEmail">
+        <button id="sendResetCode">Send Reset Code</button>
+        <div id="resetCodeForm" style="display: none;">
+            <input type="text" placeholder="Reset Code" id="resetCode">
+            <input type="password" placeholder="New Password" id="newPassword">
+            <button id="resetPassword">Reset Password</button>
+        </div>
+        <a href="#" id="backToLoginFromForgot">Back to Login</a>
+        <a href="#" id="rememberPassword">Remember Password</a>
+        <button id="loginHere" style="display: none;">Login Here</button>
+    </div>
+    <div id="userInfo" style="display: none;">
+        <p>Username: <span id="userName">Guest</span></p>
+        <p>Email: <span id="userEmail">N/A</span></p>
+        <button id="logoutBtn">Logout</button>
+    </div>
+</div>
+
+<div class="contact-us-section" id="contactUsSection" style="display: none;">
+    <h3>Contact Us</h3>
+    <p><a href="mailto: universitymarketuganda@gmail.com">Email</a></p>
+    <p><a href="tel: +256751667665">Call Us</a></p>
+    <p>Social Media:</p>
+    <ul>
+        <li><a href="https://wa.me/256744642697">WhatsApp</a></li>
+        <li><a href="https://x.com/uni_market_ug">X</a></li>
+        <li><a href="https://www.facebook.com/UniversitMarket">Facebook</a></li>
+        <li><a href="https://www.instagram.com/universitymarketuganda">Instagram</a></li>
+        <li><a href="https://www.tiktok.com/@universitymarketu">TikTok</a></li>
+        <li><a href="https://t.me/+256700998536">Telegram</a></li>
+
+    </ul>
+</div>
+
+<div class="settings-section" id="settingsSection" style="display: none;">
+    <h3>Settings</h3>
+    <label><input type="checkbox" id="darkModeToggle"> Enable Dark Mode</label>
+</div>
+
+<div class="post-ad-section" id="postAdSection" style="display: none;">
+    <h3>Post an Ad</h3>
+    <form id="postAdForm">
+        <label>Title:</label><input type="text" id="adTitle" required><br>
+        <label>Description:</label><textarea id="adDescription" required></textarea><br>
+        <label>Price:</label><input type="number" id="adPrice" required><br>
+        <label>Category:</label>
+        <select id="adCategory">
+            <option value="Furniture">Furniture</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Books">Books</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Furniture">rooms</option>
+            <option value="Furniture">Services</option>
+            <option value="Electronics">Restaurants</option>
+            <option value="Books">Shops</option>
+            <option value="Clothing">Lost and Found</option>
+            <option value="Electronics">Boda boda service</option>
+            <option value="Books">Jobs</option>
+            <option value="Books">others</option>
+            <option value="Books">Free Stuff</option>
+            <option value="Books">Repair</option>
+            <option value="Clothing">university Events</option>
+        </select><br>
+        <label>University:</label>
+        <select id="adUniversity">
+            <option value="kiu.ac.ug">Kampala International University Western Campus</option>
+            <option value="kiu.ac.ug">Kampala International University Main Campus</option>
+            <option value="mak.ac.ug">Makerere University Main Campus</option>
+            <option value="kyu.ac.ug">Kyambogo University Main Campus</option>
+            <option value="kyu.ac.ug">Kyambogo University Bushenyi Campus</option>
+            <option value="gu.ac.ug">Gulu University Main Campus</option>
+            <option value="gu.ac.ug">Gulu University Kitgum Campus</option>
+            <option value="gu.ac.ug">Gulu University Hoima Campus</option>
+            <option value="gu.ac.ug">Gulu University Kotido Campus</option>
+            <option value="gu.ac.ug">Gulu University Moroto College</option>
+            <option value="mu.ac.ug">Mbarara University Main Campus</option>
+            <option value="mu.ac.ug">Mbarara University Kihumuro Campus</option>
+            <option value="ucu.ac.ug">Uganda Christian University Main Campus</option>
+            <option value="ucu.ac.ug">Uganda Christian University Kampala Campus</option>
+            <option value="ucu.ac.ug">Uganda Christian University Mbale College</option>
+            <option value="ucu.ac.ug">Uganda Christian University Arua Campus</option>
+            <option value="ucu.ac.ug"> Bishop Barham University College Kabale</option>
+            <option value="busitema.ac.ug">Busitema University Main Campus</option>
+            <option value="busitema.ac.ug">Busitema University Nagongera Campus</option>
+            <option value="busitema.ac.ug">Busitema University Mbale Campus</option>
+            <option value="busitema.ac.ug">Busitema University Arapai Campus</option>
+            <option value="busitema.ac.ug">Busitema University Namasagali Campus</option>
+            <option value="busitema.ac.ug">Busitema University Pallisa Campus</option>
+            <option value="kab.ac.ug">Kabale University Main Campus</option>
+            <option value="kab.ac.ug">Kabale University Nyabikoni Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Main Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Lubaga Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Masaka Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Mbale Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Kabale Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Mbarara Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Lira Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Fort Portal Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Nsambya Campus</option>
+            <option value="umu.ac.ug">Uganda Martyrs University Moyo Campus</option>
+            <option value="iuiu.ac.ug">Islamic University In Uganda Main Campus</option>
+            <option value="iuiu.ac.ug">Islamic University In Uganda Kampala Campus</option>
+            <option value="iuiu.ac.ug">Islamic University In Uganda Female's Campus</option>
+            <option value="iuiu.ac.ug">Islamic University In Uganda Arua Campus</option>
+            <option value="mmu.ac.ug">Mountains of the Moon University Lake Saaka Campus</option>
+            <option value="mmu.ac.ug">Mountains of the Moon University Down Town Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Main Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Arua Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Jinja Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Mbale Campus</option>
+            <option value="mubs.ac.ug">Makerere University Business School Mbarara Campus</option>
+            <option value="umi.ac.ug">Uganda Management Institute Main Campus</option>
+            <option value="umi.ac.ug">Uganda Management Institute Gulu Campus</option>
+            <option value="umi.ac.ug">Uganda Management Institute Mbarara Campus</option>
+            <option value="umi.ac.ug">Uganda Management Institute Mbale Campus</option>
+            <option value="ndu.ac.ug">Ndejje University Main Campus</option>
+            <option value="ndu.ac.ug">Ndejje University Kampala Campus</option>
+            <option value="clarke.ac.ug">Clarke International University</option>
+            <option value="bsu.ac.ug">Bishop Stuart University Main Campus</option>
+            <option value="bsu.ac.ug">Bishop Stuart University Ruharo Campus</option>
+            <option value="mu.ac.ug">Muni University</option>
+            <option value="nkumba.ac.ug">Nkumba University Main Campus</option>
+            <option value="nkumba.ac.ug">Nkumba University Kampala Campus</option>
+            <option value="nkumba.ac.ug">Nkumba University Kyegegwa Campus</option>
+            <option value="utamu.ac.ug">Uganda Technology & Management University</option>
+            <option value="vu.ac.ug">Victoria University Market Plaza Campus</option>
+            <option value="vu.ac.ug">Victoria University Main Campus</option>
+            <option value="iuea.ac.ug">International University of East Africa</option>
+            <option value="bugema.ac.ug">Bugema University Main Campus</option>
+            <option value="bugema.ac.ug">Bugema University Kampala Campus</option>
+            <option value="bugema.ac.ug">Bugema University Arua Campus</option>
+            <option value="lu.ac.ug">Lira University</option>
+            <option value="ku.ac.ug">Kumi University Main Campus</option>
+            <option value="ku.ac.ug">Kumi University Soroti Campus</option>
+            <option value="cu.ac.ug">Cavendish University Main Campus</option>
+            <option value="cu.ac.ug">Cavendish University Acacia Law Campus</option>
+            <option value="cu.ac.ug">Cavendish University Kingsgate Campus</option>
+            <option value="ku.ac.ug">Kampala University Main Campus</option>
+            <option value="ku.ac.ug">Kampala University Old Kampala Campus</option>
+            <option value="ku.ac.ug">Kampala University Luwero Campus</option>
+            <option value="ku.ac.ug">Kampala University Masaka Campus</option>
+            <option value="ku.ac.ug">Kampala University Mutundwe Campus</option>
+            <option value="ldc.ac.ug">Law Development Center Kampala Main Campus</option>
+            <option value="ldc.ac.ug">Law Development Center Kampala Mbarara Campus</option>
+            <option value="ldc.ac.ug">Law Development Center Kampala Lira Campus</option>
+            <option value="mru.ac.ug">Mutesa 1 Royal University Main Campus</option>
+            <option value="mru.ac.ug">Mutesa 1 Royal University Masaka Campus</option>
+            <option value="mru.ac.ug">Mutesa 1 Royal University Mengo Campus</option>
+            <option value="mru.ac.ug">Mutesa 1 Royal University Mubende Campus</option>
+            <option value="liu.ac.ug">Livingstone International University</option>
+            <option value="uiit.ac.ug">Uganda Institute of Information and Technology</option>
+            <option value="su.ac.ug">Soroti University</option>
+            <option value="aru.ac.ug">African Rural University</option>
+            <option value="isbat.ac.ug">ISBAT University</option>
+            <option value="slu.ac.ug">St Lawrence University</option>
+            <option value="univ-of-kisubi.ac.ug">University of Kisubi</option>
+            <option value="atsu.ac.ug">African Theological Seminary University</option>
+            <option value="upu.ac.ug">Uganda Pentecostal University</option>
+            <option value="itu.ac.ug">Insurance Training University</option>
+            <option value="kcu.ac.ug">King Ceasor University</option>
+            <option value="tu.ac.ug">Team University</option>
+            <option value="uib.ac.ug">Uganda Institute of Banking University</option>
+            <option value="awu.ac.ug">Ankole Western University</option>
+            <option value="miu.ac.ug">Metropolitan International University</option>
+            <option value="iu.ac.ug">Ibanda University</option>
+            <option value="ips.ac.ug">Institute of Petroleum Studies</option>
+            <option value="ushg.ac.ug">University of the Sacred Heart Gulu</option>
+            <option value="iiu.ac.ug">Ivance International University</option>
+            <option value="asu.ac.ug">All Saints University</option>
+            <option value="aru.ac.ug">African Renewal University</option>
+            <option value="vust.ac.ug">Valley University of Science and Technology</option>
+            <option value="glru.ac.ug">Great Lakes Regional University</option>
+            <option value="fmu.ac.ug">Fins Medical University</option>
+            <option value="kiu.ac.ug">Kayiwa International University</option>
+        </select><br>
+        <label>Images (at least 3):</label>
+        <input type="file" multiple id="adImages" required accept="image/*" min="3"><br>
+        <label>Condition:</label>
+        <input type="radio" name="condition" value="new" required> New
+        <input type="radio" name="condition" value="used"> Used<br>
+        <label>Price negotiable:</label>
+        <input type="radio" name="negotiable" value="yes" required> Yes
+        <input type="radio" name="negotiable" value="no"> No<br>
+        <label>Seller's WhatsApp number:</label><input type="text" id="whatsappNumber" required><br>
+        <button type="submit">Post Ad</button>
+    </form>
+</div>
+
+<div class="faqs-section" id="faqsSection" style="display: none;">
+    <h3>Ad FAQs</h3>
+    <ul>
+        <li><strong>How do I post an ad?</strong> Fill out the Post Ad form with your item details and submit.</li>
+        <li><strong>Can I edit my ad?</strong> Currently, ads cannot be edited after posting; contact support for assistance.</li>
+        <li><strong>How are payments handled?</strong> Payments are managed directly between buyers and sellers; use secure methods.</li>
+        <li><strong>What if my item doesn’t sell?</strong> You can repost it or remove it by contacting support.</li>
+        <li><strong>Is there a fee?</strong> No fees for now, but check for updates in Settings.</li>
+    </ul>
+
+</div>
+<div id="nexusAIFloatingIcon">🤖</div>
+<div class="nexus-ai-section" id="nexusAiSection" style="display: none;">
+    <h3>Nexus AI Chat</h3>
+    <div id="nexusAIChatLog">
+        <p>Hi, I am Nexus, your AI assistant. How can I help you today?</p>
+    </div>
+    <div id="nexusAILoading" style="display: none;">Thinking...</div>
+    <input type="text" id="nexusAIInput" placeholder="Ask me anything or describe an image...">
+    <button id="nexusAISubmit">Send</button>
+    <div id="nexusAIImagePreview"></div>
+</div>
+
+</body>
+
+</html>
