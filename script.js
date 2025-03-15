@@ -1,4 +1,3 @@
-
 // Mock dataset of seller-uploaded items (updated with your universities)
 const items = [
     { name: "Calculus Textbook", price: 15, university: "kiu.ac.ug", image: "placeholder", campus: "Kampala International University Western Campus" },
@@ -617,3 +616,7 @@ function generateNexusAIResponse(input) {
 
     return `Hmm, that’s an interesting one— I am sorry that i can't help you with-${input} because i am still under development but my designer is working tirelessly to see me rendering help but I’d say it’s worth exploring, can you give me some more information about it? 🤔`;
 }
+
+document.getElementById('menuToggleBtn').addEventListener('click', function() {
+    document.getElementById('sidebar').classList.toggle('active');
+});
